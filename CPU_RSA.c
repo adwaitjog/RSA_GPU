@@ -465,6 +465,21 @@ unsigned char *r = calloc(2*n_size, sizeof(char));
 		z++;
 	}
 
+	free(r);
+	free(n);
+	free(exponent);
+	free(d_exponent);
+	free(message);
+	free(ciphertext);
+	free(m0_copy);
+	free(reduction);
+	free(buf);
+	free(temp);
+	free(shifted);
+	free(xprime);
+	free(result);
+	free(tmp);
+
 	return 0;
 }
 
@@ -686,7 +701,6 @@ void barrett_reduction(unsigned char *buf, unsigned char *r, unsigned char *n, u
 	}
 
 	else {
-		unsigned char *tmp = calloc(n_size + 1, sizeof(char));
 		subtraction(result, n, tmp, n_size + 1);
 		memcpy(reduction, tmp, n_size);
 		memset(tmp, 0x00, n_size + 1);
